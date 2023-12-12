@@ -11,10 +11,10 @@ public class GSave implements BankAccountDecorator
         this.bankAccount = bankAccount;
     }
     @Override
-    //Displays the G-Cash -Go - Save when Chose (GSAVE)
-    public String showAccountType()
+    //Calculates the Balance within the Interest
+    public Double getBalance()
     {
-        return "G-Cash Go-Save ";
+        return bankAccount.getBalance();
     }
     @Override
     //Interest 2.5% = 0.025
@@ -22,11 +22,11 @@ public class GSave implements BankAccountDecorator
     {
         return 0.025;
     }
+
     @Override
-    //Calculates the Balance within the Interest
-    public Double getBalance()
+    public Double computeBalanceWithInterest()
     {
-        return bankAccount.getBalance();
+        return bankAccount.getBalance() * (1 + getInterestRate());
     }
     @Override
     public String showBenefits()
@@ -35,14 +35,15 @@ public class GSave implements BankAccountDecorator
         return bankAccount.showBenefits() + ", Gcash Transfer Mode-";
     }
     @Override
-    public Double computeBalanceWithInterest()
-    {
-        return bankAccount.getBalance() * (1 + getInterestRate());
-    }
-    @Override
     public String showInfo()
     {
         return bankAccount.showInfo();
+    }
+    @Override
+    //Displays the G-Cash -Go - Save when Chose (GSAVE)
+    public String showAccountType()
+    {
+        return "G-Cash Go-Save ";
     }
     @Override
     public void setBankAccount(BankAccount bankAccount)

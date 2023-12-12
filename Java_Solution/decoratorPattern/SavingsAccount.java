@@ -36,7 +36,7 @@ public class SavingsAccount implements BankAccount
     @Override
     public String showBenefits()
     {
-        return "Standard Savings Account";
+        return "Default Savings Account";
     }
     @Override
     public Double computeBalanceWithInterest()
@@ -46,8 +46,7 @@ public class SavingsAccount implements BankAccount
     @Override
     public String showInfo()
     {
-        return "Account Number: " + this.accountNumber +
-                "\nAccount Name: " + this.accountName +
+        return "Account Number: " + this.accountNumber +  "\nAccount Name: " + this.accountName +
                 "\nBalance " + this.balance;
     }
     //setters and getters and calculation were conveyed...

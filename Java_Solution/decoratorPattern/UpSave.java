@@ -8,9 +8,20 @@ public class UpSave implements BankAccountDecorator
     {
         this.bankAccount = bankAccount;
     }
+    @Override
+    public String showBenefits()
+    {
+        return bankAccount.showBenefits() + ", W/ - Insurance";
+    }
     public String showAccountType()
     {
-        return "Savings Up!";
+        return "Saving(s) are Up!";
+    }
+
+    @Override
+    public Double computeBalanceWithInterest()
+    {
+        return bankAccount.getBalance() * (1 + getInterestRate());
     }
     @Override
     public Double getInterestRate()
@@ -22,16 +33,7 @@ public class UpSave implements BankAccountDecorator
     {
         return bankAccount.getBalance();
     }
-    @Override
-    public String showBenefits()
-    {
-        return bankAccount.showBenefits() + ", W/ Insurance";
-    }
-    @Override
-    public Double computeBalanceWithInterest()
-    {
-        return bankAccount.getBalance() * (1 + getInterestRate());
-    }
+
     @Override
     public String showInfo()
     {
